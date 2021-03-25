@@ -1,0 +1,10 @@
+{
+    "database": {
+        "host": "mongodb://root:beive37bel!nas@mongo",
+        "port": 27017,
+        "dbName": "systems-management"
+    },
+    "jwt": {
+        "secret": "Shfdjlkl$gfj!"
+    }
+}

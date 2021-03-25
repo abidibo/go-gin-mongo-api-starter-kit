@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mongo:
+    container_name: sma-mongo
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    volumes:
+      - ./mongo/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
+      - mongo_dbdata:/data/db
+      - mongo_configdb:/data/configdb
+
+  app:
+    container_name: sma-app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - mongo
+volumes:
+  mongo_dbdata:
+    driver: local
+  mongo_configdb:
+    driver: local

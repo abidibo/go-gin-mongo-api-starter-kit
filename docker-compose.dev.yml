@@ -1,0 +1,15 @@
+version: "3"
+services:
+  mongo:
+    env_file:
+      - .env.dev
+    command: mongod
+
+  app:
+    build:
+        context: .
+        dockerfile: Dockerfile.dev
+    env_file:
+      - .env.dev
+    volumes:
+        - ./src:/go/src/app/
