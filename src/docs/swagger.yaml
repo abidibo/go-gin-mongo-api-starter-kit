@@ -364,7 +364,7 @@ paths:
       - BearerAuth: []
       summary: Delete domain
       tags:
-      - auth
+      - domains
     get:
       consumes:
       - application/json
@@ -393,6 +393,46 @@ paths:
       security:
       - BearerAuth: []
       summary: Domain detail
+      tags:
+      - domains
+    put:
+      consumes:
+      - application/json
+      description: Updates a domain
+      parameters:
+      - description: Domain ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Domain data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/domains.DomainValidatorData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domains.DomainData'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - BearerAuth: []
+      summary: Update domain
       tags:
       - domains
   /domains/:

@@ -97,7 +97,7 @@ var CreateDomainView = auth.RoleRequired([]string{"admin", "superadmin"}, create
 // @Summary Update domain
 // @Description Updates a domain
 // @Security BearerAuth
-// @Tags auth
+// @Tags domains
 // @Accept  json
 // @Produce  json
 // @Param id path string true "Domain ID"
@@ -106,7 +106,7 @@ var CreateDomainView = auth.RoleRequired([]string{"admin", "superadmin"}, create
 // @Failure 403 {object} utils.ErrorResponse
 // @Failure 404 {object} utils.ErrorResponse
 // @Failure 422 {object} utils.ErrorResponse
-// @Router /auth/user/{id} [put]
+// @Router /domain/{id} [put]
 func updateDomainView(c *gin.Context) {
 	domainService := new(DomainService)
 	domain, err := domainService.GetById(c.Param("id"))
@@ -137,7 +137,7 @@ var UpdateDomainView = auth.RoleRequired([]string{"admin", "superadmin"}, update
 // @Summary Delete domain
 // @Description Deletes a domain
 // @Security BearerAuth
-// @Tags auth
+// @Tags domains
 // @Accept  json
 // @Produce  json
 // @Param id path string true "Domain ID"
