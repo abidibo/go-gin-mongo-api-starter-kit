@@ -40,6 +40,7 @@ func LoginView(ctx *gin.Context) {
 	if err != nil {
 		zap.S().Debug("Login POST request, error binding POST data: ", err)
 		ctx.JSON(http.StatusBadRequest, gin.H{"message": "Missing email or password"})
+		return
 	} else {
 		zap.S().Debugw("Login POST request with provided credentials", "email", credential.Email)
 	}
