@@ -43,7 +43,7 @@ func init() {
 // @license.name MIT
 // @license.url https://mit-license.org/
 
-// @host localhost:8080
+// @host jeeg.otto.to.it:3000
 // @BasePath /api
 func main() {
 	r := gin.Default()

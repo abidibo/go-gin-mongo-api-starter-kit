@@ -96,7 +96,7 @@ definitions:
       message:
         type: string
     type: object
-host: localhost:8080
+host: jeeg.otto.to.it:3000
 info:
   contact:
     email: support@otto.to.it
