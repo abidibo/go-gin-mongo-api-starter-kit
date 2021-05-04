@@ -301,6 +301,34 @@ paths:
       tags:
       - auth
   /domain/:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves all domains
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              items:
+                $ref: '#/definitions/domains.DomainData'
+              type: array
+            type: array
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - BearerAuth: []
+      summary: Domains list
+      tags:
+      - domains
     post:
       consumes:
       - application/json
@@ -433,35 +461,6 @@ paths:
       security:
       - BearerAuth: []
       summary: Update domain
-      tags:
-      - domains
-  /domains/:
-    get:
-      consumes:
-      - application/json
-      description: Retrieves all domains
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              items:
-                $ref: '#/definitions/domains.DomainData'
-              type: array
-            type: array
-        "403":
-          description: Forbidden
-          schema:
-            $ref: '#/definitions/utils.ErrorResponse'
-        "500":
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/utils.ErrorResponse'
-      security:
-      - BearerAuth: []
-      summary: Domains list
       tags:
       - domains
 securityDefinitions:

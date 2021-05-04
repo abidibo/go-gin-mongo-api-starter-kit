@@ -70,7 +70,7 @@ func LoginView(ctx *gin.Context) {
 // @Tags auth
 // @Accept  json
 // @Produce  json
-// @Success 200 {array} []UserData
+// @Success 200 {array} UserData
 // @Failure 403 {object} utils.ErrorResponse
 // @Failure 500 {object} utils.ErrorResponse
 // @Router /auth/user [get]

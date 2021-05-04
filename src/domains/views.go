@@ -16,10 +16,10 @@ import (
 // @Tags domains
 // @Accept  json
 // @Produce  json
-// @Success 200 {array} []DomainData
+// @Success 200 {array} DomainData
 // @Failure 403 {object} utils.ErrorResponse
 // @Failure 500 {object} utils.ErrorResponse
-// @Router /domains/ [get]
+// @Router /domain/ [get]
 func domainListView(c *gin.Context) {
 	domainService := new(DomainService)
 	domains, err := domainService.all()
