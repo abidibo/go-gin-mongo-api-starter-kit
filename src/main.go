@@ -51,6 +51,8 @@ func main() {
 	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json") // The url pointing to API definition
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
+	// test append slash, if I call api/v1/domains without trailing slash answers with a 301 to api/v1/domains/ but
+	// without cors headers, so it fails
 	r.Use(m.CORSMiddleware())
 	r.Use(auth.AuthenticationMiddleware)
 	api := r.Group("/api")
