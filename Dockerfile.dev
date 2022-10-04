@@ -15,6 +15,7 @@ RUN go get github.com/cespare/reflex
 
 # Run the two commands below to install git and dependencies for the project. 
 RUN apk update && apk add --no-cache git
+RUN go install github.com/cespare/reflex
 RUN go get -d -v ./...
 
 CMD reflex -r '\.go' -s -- sh -c "go run main.go"
